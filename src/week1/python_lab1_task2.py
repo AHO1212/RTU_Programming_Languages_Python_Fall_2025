@@ -1,18 +1,11 @@
-"""
-Task 2 – Greeting Function with String Manipulation
---------------------------------------------------
-Write a function `greet_user(name)` that:
-- removes extra spaces with .strip()
-- capitalizes the first letter with .capitalize()
-- returns "Hello, <Name>! Welcome to Python!"
-Ask user for their name and print result.
-"""
-
-def greet_user(name):
+def greet_user(name: str) -> str:
     """Return a greeting message after cleaning and capitalizing the name."""
-    # TODO: implement cleaning and formatting
-    pass
+    cleaned = (name or "").strip()
+    if not cleaned:
+        return "Hello! Welcome to Python!"
+    return f"Hello, {cleaned.capitalize()}! Welcome to Python!"
+
 
 if __name__ == "__main__":
-    # TODO: read name from input and print greeting
-    pass
+    user_name = input("What is your name? ")
+    print(greet_user(user_name))
